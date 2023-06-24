@@ -1,0 +1,24 @@
+{
+    "pach":[
+        "Music_YTB_software" 
+    ],
+    "Code_Name":[
+        "Felix"
+    ],
+    "build":[
+        "0.3"
+    ],
+    "Version":[
+        "0.1 -Demo" 
+    ],
+
+    "style_default":[
+        "#080202",
+        "#CD1818"
+
+    ],
+    "Format":[
+        ".mp3",
+        ".wav"
+    ]
+}
