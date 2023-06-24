@@ -11,15 +11,16 @@ import json
 import re
 
 from urllib import request
+
 # json read data 
 with open("Log/data.json")as f:
     data=json.load(f)
 ver_data=(data["Version"])
 build_data=(data["build"])
 code_data=(data["Code_Name"])
-pach =(data["pach"])
-pach_txt=re.sub("[']",'',pach[0])
-print(pach_txt)
+Patch =(data["Patch"])
+Patch_txt=re.sub("[']",'',Patch[0])
+
 version=re.sub("[']","",ver_data[0])
 build=re.sub("[']","",build_data[0])
 code_name=re.sub("[']","",code_data[0])
@@ -143,11 +144,13 @@ class main:
         
             else:
            
-                try:    
                         
-                        format_txt=self.format_file
+                try:      
                         yt=YouTube(self.link)
                         self.title0=yt.title
+                     
+
+                        
                         MSB.showinfo(message="""DO NOT TOUCH UNTIL THE BUTTON DOWNLOAD  IS MISSED
                         
                         INFO:Download File Format %s
@@ -155,19 +158,23 @@ class main:
                         DIR Pach:%s
                                 
                         
-                        """%(format_txt,self.title0,pach_txt))
+                        """%(self.format_file,self.title0,Patch_txt))
+                        
                      
+                     
+                      
                         yt_s=yt.streams.filter(only_audio=True)
                         yt_s=yt_s.first()
-                        out_file=yt_s.download(pach_txt)
+                        out_file=yt_s.download(Patch_txt)
                         base ,ext =os.path.splitext(out_file)
 
-                        new_file=base +format_txt
+                        new_file=base +self.format_file
                         os.rename(out_file,new_file)
 
                         self.bt.destroy()
-
-                        MSB.showinfo(message="Successfull Download ")
+                except:
+                     MSB.showerror(message='ERRORS:  network or wrong syntax')
+                     
                        
                         
                        
@@ -175,8 +182,7 @@ class main:
                         
 
                     
-                except :
-                        MSB.showerror(message='error network or Syntax URL ')
+               
                         
                 
             
